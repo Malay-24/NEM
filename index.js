@@ -3,7 +3,7 @@ const {connection}=require("./db")
 const {userRouter}=require("./routes/User.routes")
 const {noteRouter}=require("./routes/Notes.routes")
 const {auth}=require("./middleware/auth.middleware")
-
+require("dotenv").config()
 
 const cors=require("cors")
 
@@ -22,7 +22,7 @@ app.use("/notes",noteRouter)
 
 
 
-app.listen(4040,async()=>{
+app.listen(process.env.port,async()=>{
     await connection
 console.log("server is running at 4040")
 })
